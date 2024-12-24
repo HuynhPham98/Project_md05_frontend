@@ -22,6 +22,7 @@ import Franchise from "../pages/user/Franchise";
 
 import Home from "../pages/permitAll/Home";
 import Demo from "../pages/Demo";
+import GiftPage from "../pages/user/GiftPage";
 import Banner from "../pages/user/Banner";
 
 const publicRouter = [
@@ -51,6 +52,7 @@ const publicRouter = [
             path: "showing", // Đường dẫn "/movies/showing"
             element: <MoviesShowing />,
           },
+
           {
             path: "coming_soon",
             element: <MoviesComingSoon />,

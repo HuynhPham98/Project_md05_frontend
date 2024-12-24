@@ -7,7 +7,7 @@ import HeaderAdmin from "../../layout/HeaderAdmin";
 import Cookies from "js-cookie";
 
 export default function Admin() {
-  //bảo vệ router
+  // bảo vệ router
   const isAdmin = () => {
     const data = JSON.parse(Cookies.get("data") || "null");
     if (data) {
@@ -21,7 +21,7 @@ export default function Admin() {
   };
 
   // Kiểm tra xem đã có token và role admin??
-  // return isAdmin ? (
+
   return (
     <>
       <HeaderAdmin />

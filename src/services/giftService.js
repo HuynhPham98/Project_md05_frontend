@@ -10,8 +10,8 @@ export const getGifts = async () => {
     return response.data ;
 }
 
-export const findAllGift = async (page) => {
-    const response = await baseUrl.get(`/api.myService.com/v1/admin/gifts/findAll?page=${page}`);
+export const findAllGift = async (page,search , sortTime) => {
+    const response = await baseUrl.get(`/api.myService.com/v1/admin/gifts/findAll?page=${page}&search=${search}&sortTime=${sortTime}`);
     return response.data ;
 }
 

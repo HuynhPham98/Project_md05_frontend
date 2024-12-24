@@ -111,17 +111,17 @@ export default function CommentManager() {
             <div className="flex gap-4">
               {record.status ? (
                 <Button
-                  className="bg-red-500 text-white"
+                  className="bg-blue-500 text-white"
                   onClick={() => handleUnblock(record.id)}
                 >
-                  Block
+                  UnBlock
                 </Button>
               ) : (
                 <Button
-                  className="bg-blue-500 text-white"
+                  className="bg-red-500 text-white"
                   onClick={() => handleBlock(record.id)}
                 >
-                  UnBlock
+                  Block
                 </Button>
               )}
               <Button
@@ -241,7 +241,7 @@ export default function CommentManager() {
       <Modal
         title={
           <div className="flex justify-between mb-4">
-            <p className="text-[32px] pb-6 font-medium">Reply Comment</p>
+            <h3>Reply Comment</h3>
             <CloseOutlined onClick={handleCloseModal} />
           </div>
         }

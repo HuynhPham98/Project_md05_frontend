@@ -4,10 +4,9 @@ import { fetchAllMoviesIsShowing } from "../../services/movieService";
 import { Button } from "antd";
 import { NavLink } from "react-router-dom";
 import StatusMovie from "./StatusMovie";
-
-import Banner from "./Banner";
-
 import { isUserLogin } from "../../utils/auth";
+
+// import Banner from "./Banner";
 
 export default function MoviesShowing() {
   const [moivesShowing, setMoviesShowing] = useState([]);

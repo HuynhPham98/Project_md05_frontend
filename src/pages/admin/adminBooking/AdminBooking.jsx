@@ -221,17 +221,15 @@ export default function AdminBooking() {
   ];
   return (
     <div>
-      <div className="flex justify-between mb-4">
-        <h1 className="text-[32px] pb-6 font-medium">Bookings Management</h1>
-        {isLoading ? <LoadingOutlined /> : <></>}
-      </div>
+      <h1 className="text-4xl font-bold">Bookings Management</h1>
+      {isLoading ? <LoadingOutlined /> : <></>}
 
-      <div>
-        <div className="flex justify-between pb-4">
+      <div className="px-[150px] py-[50px]">
+        <div className="m-10 flex justify-end">
           <Input
             value={search.date}
             type="date"
-            style={{ width: 250 }}
+            style={{ width: 200 }}
             onChange={(value) => {
               // console.log("date =>> ", value.target.value);
               return setSearch({ ...search, date: value.target.value });

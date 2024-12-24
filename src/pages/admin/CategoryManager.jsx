@@ -319,7 +319,7 @@ export default function CategoryManager() {
       </Modal>
       <main>
         <div className="flex justify-between mb-4">
-          <p className="text-[32px] pb-6 font-medium">Category Manager</p>
+          <h3>Category Manager</h3>
           <Button type="primary" onClick={handleShowModal}>
             Add category
           </Button>

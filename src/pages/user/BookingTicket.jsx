@@ -115,7 +115,7 @@ export default function BookingTicket() {
         setTotalMoney(money);
         setSelectecSeats(newArr);
       } else {
-        message.error("Không được bỏ trống số ghế bên cạnh");
+        message.error("Không được bỏ trống ghế này");
       }
     } else {
       let checkSeatValid = true;
@@ -186,7 +186,7 @@ export default function BookingTicket() {
   return (
     <div>
       <div className="content flex justify-between gap-[100px]  bg-[#f8f8f8] w-[100%] h-[100vh] pt-[50px] pl-[100px]">
-        <div className="screen text-center bg-black w-[50%] h-[80vh] relative">
+        <div className="!screen text-center bg-black w-[50%] h-[80vh] relative">
           <p className=" w-[70%] h-[40px] m-auto flex justify-center items-center mt-3 text-2xl text-black bg-white  p-5">
             Projection Screen
           </p>
@@ -256,7 +256,7 @@ export default function BookingTicket() {
               </div>
             </div>
           )}
-          <div className="flex justify-between mt-10 ml-10">
+          <div className="guide-chair flex justify-between mt-10 ml-10">
             <div className="flex justify-start gap-x-10 text-white  absolute bottom-0 w-[100%]">
               <div className="flex gap-4 items-center">
                 <div className="bg-red-600 w-10 h-10"></div>

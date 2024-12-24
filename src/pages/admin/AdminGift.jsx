@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table, Button, Input, Modal, message, Upload } from "antd";
+import { Table, Button, Input, Modal, message, Upload, Select } from "antd";
 import { LoadingOutlined, UploadOutlined } from "@ant-design/icons";
 
 import axios from "axios";
@@ -10,6 +10,7 @@ import {
   updateGift,
   uploadImageGift,
 } from "../../services/giftService";
+import { useDebounce } from "../../hooks/useDebounce";
 
 export default function AdminGift() {
   const [gifts, setGifts] = useState([]);
@@ -23,7 +24,8 @@ export default function AdminGift() {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [totalPage, setTotalPage] = useState(1);
-
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("all");
   const [gift, setGift] = useState({
     giftName: "",
     description: "",
@@ -37,10 +39,11 @@ export default function AdminGift() {
     expiredDate: "",
   });
 
+  const useDebounceSearch = useDebounce(search, 300);
   const fetchAllGifts = async () => {
     setIsLoading(true);
     try {
-      const response = await findAllGift(currentPage - 1);
+      const response = await findAllGift(currentPage - 1, search, sort);
       setGifts(response.gifts);
       setTotalPage(response.totalPage);
     } catch (error) {
@@ -52,7 +55,7 @@ export default function AdminGift() {
 
   useEffect(() => {
     fetchAllGifts();
-  }, [currentPage]);
+  }, [currentPage, useDebounceSearch, sort]);
 
   const handleOpenForm = () => {
     setIsShowForm(true);
@@ -279,11 +282,11 @@ export default function AdminGift() {
   ];
   return (
     <div>
-      <h1 className="text-[32px] pb-6 font-medium">Gift Management</h1>
+      <h1 className="text-4xl font-bold">Gift Management</h1>
       {isLoading && <LoadingOutlined />}
 
-      <div>
-        <div className="flex justify-end pb-4">
+      <div className="px-[150px] py-[50px]">
+        <div className="flex justify-end pb-10">
           <Button
             type="primary"
             className="w-[200px] h-[40px] text-lg"
@@ -293,6 +296,21 @@ export default function AdminGift() {
           </Button>
         </div>
 
+        <div className="flex justify-end items-center gap-5 my-5">
+          <Input
+            placeholder="search gift name"
+            className="w-[400px]"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Select
+            value={sort}
+            onChange={(e) => setSort(e)}
+            className="w-[100px]"
+          >
+            <Option value={"all"}>All</Option>
+            <Option value={"new"}>Still Valid</Option>
+          </Select>
+        </div>
         <Table
           dataSource={gifts?.map((gift) => ({ ...gift, key: gift.id }))}
           columns={columns}

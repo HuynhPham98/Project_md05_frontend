@@ -144,7 +144,7 @@ export default function ShowTime() {
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="grid grid-cols-2 gap-10 item"
+            className="grid grid-cols-2 gap-10 item sm:flex-col"
             style={{
               maxWidth: "600px",
               borderBottom: "2px solid blue",
@@ -230,7 +230,11 @@ export default function ShowTime() {
             <div className="text-xl">
               <div className="flex justify-center items-center">
                 <img
-                  className="w-[240px]"
+                  style={{
+                    borderRadius: "10px",
+                    width: "400px",
+                    height: "563px",
+                  }}
                   src={showTimeDetail?.movie.poster}
                   alt=""
                 />

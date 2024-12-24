@@ -566,7 +566,7 @@ export default function MovieManager() {
       </Modal>
       <main>
         <div className="flex justify-between mb-4">
-          <p className="text-[32px] pb-6 font-medium">Movie Manager</p>
+          <h3>Movie Manager</h3>
           <Button type="primary" onClick={handleShowModal}>
             Add movie
           </Button>

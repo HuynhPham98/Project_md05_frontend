@@ -1,10 +1,12 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Outlet } from "react-router-dom";
+
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Banner() {
   const images = [

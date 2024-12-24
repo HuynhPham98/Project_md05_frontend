@@ -19,6 +19,7 @@ export default function Header() {
   const calllogout = async () => {
     const response = await logoutUser();
   };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogout = async () => {
     await calllogout();
@@ -28,16 +29,21 @@ export default function Header() {
     navigate("/login");
   };
 
+  // useEffect(() => {
+  //   getUserLogin();
+  // }, []);
+
   const fetchUser = async () => {
     try {
       const response = await getUserLogin();
       setUserLogin(response);
+      setIsLoggedIn(true);
     } catch (error) {}
   };
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <>
@@ -166,7 +172,7 @@ export default function Header() {
               </NavLink>
             </div>
             <div>
-              <NavLink to={"*"}>THÀNH VIÊN</NavLink>
+              <NavLink>THÀNH VIÊN</NavLink>
             </div>
           </div>
         </div>

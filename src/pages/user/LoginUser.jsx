@@ -28,7 +28,6 @@ const LoginUser = () => {
 
       // Lưu token vào Cookie
       cookies.set("data", JSON.stringify(response), { path: "/" });
-      console.log(response);
 
       // Điều hướng sau khi đăng nhập
       if (
