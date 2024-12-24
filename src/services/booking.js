@@ -53,3 +53,8 @@ export const seatToMoney = async (seatId ,showTimeId) => {
   const response = await baseUrl.get(`/api.myService.com/v1/bookings/getPriceOfSeat/seatId/${seatId}/showTimeId/${showTimeId}`);
   return response.data ;
 }
+
+export const codeBookingSendMail = async (email , codeBooking) => {
+    const response = await baseUrl.post(`/api.myService.com/v1/users/bookings/sendCodeBooking/email/${email}/codeBooking/${codeBooking}`);
+    return response.data ;
+}

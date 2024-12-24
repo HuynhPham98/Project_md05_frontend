@@ -12,7 +12,11 @@ import {
 import ComboFood from "../admin/food/ComboFood";
 import { userGetAllComboFood } from "../../services/comboFood";
 import { useCookies } from "react-cookie";
-import { getUser, handleBooking } from "../../services/booking";
+import {
+  codeBookingSendMail,
+  getUser,
+  handleBooking,
+} from "../../services/booking";
 import { current } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
@@ -155,6 +159,10 @@ export default function Payment() {
     setFormConfirm(true);
   };
 
+  const sendCodeBooking = async (codeBooking) => {
+    const response = await codeBookingSendMail(user.email, codeBooking);
+  };
+
   const useGiftUser = async () => {
     const response = await useGift(giftSelectedId);
   };
@@ -201,6 +209,7 @@ export default function Payment() {
       if (useCoin) {
         updateCoin();
       }
+      sendCodeBooking(response.serial_number);
       message.success("Payment successfully ! Thanks you so much ");
       setUuid(response.serial_number);
     } else {
